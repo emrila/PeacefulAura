@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "peaceful-aura",
+	"version": "${version}",
+	"name": "Peaceful Aura",
+	"description": "Adds an effect (edible and potion) that temporarily prevents mobs from targeting and attacking.",
+	"authors": [
+		"Emrila"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/peaceful-aura",
+		"sources": "https://github.com/emrila/PeacefulAura"
+	},
+	"license": "MIT",
+	"icon": "assets/peaceful-aura/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"org.emrila.PeacefulAura"
+		],
+		"fabric-datagen": [
+			"org.emrila.PeacefulAuraDataGenerator"
+		]
+	},
+	"accessWidener": "peaceful-aura.classtweaker",
+	"mixins": [
+		"peaceful-aura.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

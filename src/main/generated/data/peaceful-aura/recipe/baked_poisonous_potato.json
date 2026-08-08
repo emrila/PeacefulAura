@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "experience": 0.35,
+  "ingredient": "minecraft:poisonous_potato",
+  "result": {
+    "id": "peaceful-aura:baked_poisonous_potato"
+  }
+}
