@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:brewing",
+  "input": {
+    "item": "minecraft:potion",
+    "potion_contents": {
+      "potions": "peaceful-aura:long_peaceful_aura"
+    }
+  },
+  "output": {
+    "components": {
+      "minecraft:potion_contents": {
+        "potion": "peaceful-aura:long_peaceful_aura"
+      }
+    },
+    "id": "minecraft:splash_potion"
+  },
+  "reagent": {
+    "item": "minecraft:gunpowder"
+  }
+}
