@@ -24,7 +24,9 @@ public final class ModItems {
 
     public static void init(){
         PeacefulAura.Log("💜 Registering items for {}", PeacefulAura.MOD_ID);
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(output -> output.accept(BAKED_POISONOUS_POTATO));
+        CreativeModeTabEvents.ModifyOutput listener = output -> output.accept(BAKED_POISONOUS_POTATO);
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(listener);
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS).register(listener);
     }
 
 }
