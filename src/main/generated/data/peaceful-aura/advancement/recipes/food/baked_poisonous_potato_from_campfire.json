@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "peaceful-aura:baked_poisonous_potato_from_campfire"
+        "recipes": "peaceful-aura:baked_poisonous_potato_from_campfire"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
