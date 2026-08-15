@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "peaceful-aura",
+	"id": "peacefulaura",
 	"version": "${version}",
 	"name": "Peaceful Aura",
 	"description": "Adds an effect (edible and potion) that temporarily prevents mobs from targeting and attacking.",
@@ -12,7 +12,7 @@
 		"sources": "https://github.com/emrila/PeacefulAura"
 	},
 	"license": "MIT",
-	"icon": "assets/peaceful-aura/icon.png",
+	"icon": "assets/peacefulaura/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -22,9 +22,9 @@
 			"org.emrila.PeacefulAuraDataGenerator"
 		]
 	},
-	"accessWidener": "peaceful-aura.classtweaker",
+	"accessWidener": "peacefulaura.classtweaker",
 	"mixins": [
-		"peaceful-aura.mixins.json"
+		"peacefulaura.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.19.3",

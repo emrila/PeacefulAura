@@ -13,7 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public final class PeacefulAura implements ModInitializer {
-	public static final String MOD_ID = "peaceful-aura";
+	public static final String MOD_ID = "peacefulaura";
 	private static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override
