@@ -1,0 +1,115 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+    id 'maven-publish'
+}
+
+base {
+    archivesName = "${mod_id}-${project.name}-${minecraft_version}"
+}
+
+loom {
+    runs {
+        client {
+            client()
+            getDisplayName().set 'fabric - Client'
+            getGenerateRunConfig().set(true)
+            getRunDirectory().set this.file('runs/client')
+        }
+        server {
+            server()
+            getDisplayName().set 'fabric - Server'
+            getGenerateRunConfig().set true
+            getRunDirectory().set this.file('runs/server')
+        }
+    }
+}
+
+fabricApi {
+    configureDataGeneration {
+        client = true
+    }
+}
+
+configurations {
+    commonJava {
+        canBeResolved = true
+    }
+    commonResources {
+        canBeResolved = true
+    }
+}
+
+dependencies {
+    // To change the versions see the gradle.properties file
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+
+    compileOnly project(':common')
+    commonJava project(path: ':common', configuration: 'commonJava')
+    commonResources project(path: ':common', configuration: 'commonResources')
+}
+
+tasks.named('compileJava', JavaCompile) {
+    dependsOn configurations.commonJava
+    source configurations.commonJava
+}
+
+tasks.named('processResources', ProcessResources) {
+    dependsOn configurations.commonResources
+    from configurations.commonResources
+}
+
+processResources {
+    def replaceProperties = [
+            version          : project.version,
+            loader_version   : loader_version,
+            minecraft_version: minecraft_version,
+            homepage_url     : curseforge_url,
+            sources_url      : sources_url,
+            issue_tracker_url: issue_tracker_url,
+            mod_id           : mod_id,
+            mod_name         : mod_name,
+            mod_description  : mod_description,
+            mod_authors      : mod_authors
+    ]
+
+    inputs.properties replaceProperties
+
+    filesMatching("fabric.mod.json") {
+        expand replaceProperties
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 25
+}
+
+java {
+    /* Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task if it is present.
+       If you remove this line, sources will not be generated. */
+    withSourcesJar()
+
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+}
+
+jar {
+    def projectName = project.name
+    inputs.property "projectName", projectName
+
+    from("LICENSE") {
+        rename { "${it}_$projectName"}
+    }
+}
+
+publishing {
+    publications {
+        create("mavenJava", MavenPublication) {
+            artifactId base.archivesName.get()
+            from components.java
+        }
+    }
+
+    repositories {}
+}

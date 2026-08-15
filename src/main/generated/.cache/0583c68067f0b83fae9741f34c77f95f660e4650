@@ -1,7 +1,0 @@
-// 26.2	-999999999-01-01T00:00:00	Peaceful Aura/Peaceful Aura Recipes
-0ab10eaec045cb903e6c4c013c7476517ba72bac data/peacefulaura/advancement/recipes/food/baked_poisonous_potato.json
-217f4409d7a9584bc6cf9431f161f2bb8aaa8e0f data/peacefulaura/advancement/recipes/food/baked_poisonous_potato_from_campfire.json
-0e4d72e3bad8b1b8e15b972802a71d896c6264bf data/peacefulaura/advancement/recipes/food/baked_poisonous_potato_from_smoking.json
-29028a4e9f399de5240ecbb166b85bfc9d41f042 data/peacefulaura/recipe/baked_poisonous_potato.json
-4cc893f78e5476223cd77ff665f69b188b01dcc6 data/peacefulaura/recipe/baked_poisonous_potato_from_campfire.json
-449593cb538252d5ee5876f8da0db68bb9857f61 data/peacefulaura/recipe/baked_poisonous_potato_from_smoking.json

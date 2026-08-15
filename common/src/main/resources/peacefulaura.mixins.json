@@ -1,0 +1,24 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.emrila.peacefulaura.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "entity.LivingEntityMixin",
+    "entity.WardenMixin",
+    "entity.boss.WitherBossMixin",
+    "entity.boss.enderdragon.EnderDragonMixin",
+    "entity.boss.enderdragon.phases.DragonSittingScanningPhaseAccessor",
+    "entity.boss.enderdragon.phases.DragonSittingScanningPhaseMixin",
+    "entity.boss.enderdragon.phases.DragonStrafePlayerPhaseMixin"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
+
