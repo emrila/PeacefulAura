@@ -10,7 +10,7 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
-# Package Files #
+# Package Files
 *.jar
 *.war
 *.nar
@@ -28,6 +28,7 @@ replay_pid*
 build/
 out/
 classes/
+!**/gradle-wrapper.jar
 
 # idea
 .idea/
@@ -35,7 +36,9 @@ classes/
 *.ipr
 *.iws
 
-# fabric
-run/
+# mod loaders
+**/runs/
+**/run/
+**/.cache/
 
 
