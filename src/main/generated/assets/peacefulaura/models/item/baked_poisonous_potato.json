@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "peaceful-aura:item/baked_poisonous_potato"
+    "layer0": "peacefulaura:item/baked_poisonous_potato"
   }
 }

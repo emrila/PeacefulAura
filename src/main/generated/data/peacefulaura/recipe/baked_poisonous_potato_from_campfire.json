@@ -1,9 +1,10 @@
 {
-  "type": "minecraft:smelting",
+  "type": "minecraft:campfire_cooking",
   "category": "food",
+  "cookingtime": 600,
   "experience": 0.35,
   "ingredient": "minecraft:poisonous_potato",
   "result": {
-    "id": "peaceful-aura:baked_poisonous_potato"
+    "id": "peacefulaura:baked_poisonous_potato"
   }
 }
