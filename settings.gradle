@@ -1,21 +1,43 @@
 pluginManagement {
+    includeBuild 'build-logic'
+
     repositories {
+        gradlePluginPortal()
+        mavenCentral()
+
         maven {
             name = 'Fabric'
-            url = 'https://maven.fabricmc.net/'
+            url = uri('https://maven.fabricmc.net/')
         }
+
         maven {
-            url = 'https://maven.neoforged.net/releases'
+            name = 'NeoForge'
+            url = uri('https://maven.neoforged.net/releases')
         }
-        mavenCentral()
-        gradlePluginPortal()
     }
 }
 
 plugins {
-    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
+}
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+
+        maven {
+            name = 'Fabric'
+            url = uri('https://maven.fabricmc.net/')
+        }
+
+        maven {
+            name = 'NeoForge'
+            url = uri('https://maven.neoforged.net/releases')
+        }
+    }
 }
 
 rootProject.name = 'peacefulaura'
 include 'common'
-include 'neoforge', 'fabric'
+include 'fabric'
+include 'neoforge'

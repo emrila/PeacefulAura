@@ -1,31 +1,26 @@
-modLoader="javafml" #mandatory
-loaderVersion="${loader_version_range}" #mandatory
+modLoader="javafml"
+loaderVersion="${neoforge_loader_version_range}"
 license="${mod_license}"
-issueTrackerURL="${issue_tracker_url}" #optional
+issueTrackerURL="${issue_tracker_url}"
 
-[[mods]] #mandatory
-modId="${mod_id}" #mandatory
-version="${mod_version}" #mandatory
-displayName="${mod_name}" #mandatory
-displayURL="${displayURL}" #optional
-iconFile="assets/${mod_id}/icon.png" #optional
-#credits="" #optional
-authors="${mod_authors}" #optional
-description='''${mod_description}''' #mandatory
+[[mods]]
+modId="${mod_id}"
+version="${version}"
+displayName="${mod_name}"
+displayURL="${homepage_url}"
+iconFile="assets/${mod_id}/icon.png"
+authors="${mod_authors}"
+description='''${mod_description}'''
 
 [[mixins]]
 config="${mod_id}.mixins.json"
 
-[[accessTransformers]]
-file="META-INF/accesstransformer.cfg"
-
-[[dependencies."${mod_id}"]] #optional
-modId="neoforge" #mandatory
-type="required" #mandatory  | Alts: required, optional, incompatible, discouraged
-# reason="..." #Optional
-versionRange="${neo_version_range}" #mandatory
-ordering="NONE" # Mod loaded relative to the dependency: BEFORE, AFTER, NONE
-side="BOTH" # Alts: BOTH, CLIENT, SERVER
+[[dependencies."${mod_id}"]]
+modId="neoforge"
+type="required"
+versionRange="${neoforge_version_range}"
+ordering="NONE"
+side="BOTH"
 
 [[dependencies."${mod_id}"]]
 modId="minecraft"
