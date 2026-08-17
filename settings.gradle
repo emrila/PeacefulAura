@@ -14,6 +14,11 @@ pluginManagement {
             name = 'NeoForge'
             url = uri('https://maven.neoforged.net/releases')
         }
+
+        maven {
+            name = 'MinecraftForge'
+            url = 'https://maven.minecraftforge.net/'
+        }
     }
 }
 
@@ -23,6 +28,7 @@ plugins {
 
 dependencyResolutionManagement {
     repositories {
+        gradlePluginPortal()
         mavenCentral()
 
         maven {
@@ -34,6 +40,11 @@ dependencyResolutionManagement {
             name = 'NeoForge'
             url = uri('https://maven.neoforged.net/releases')
         }
+
+        maven {
+            name = 'MinecraftForge'
+            url = 'https://maven.minecraftforge.net/'
+        }
     }
 }
 
@@ -41,3 +52,4 @@ rootProject.name = 'peacefulaura'
 include 'common'
 include 'fabric'
 include 'neoforge'
+include 'forge'
