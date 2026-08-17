@@ -63,10 +63,13 @@ def replaceProperties = sharedModMetadata + [
 def generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
     inputs.properties replaceProperties
 
-    from('src/main/templates') {
+    filesMatching('pack.mcmeta') {
         expand replaceProperties
     }
 
+    from('src/main/templates') {
+        expand replaceProperties
+    }
     into layout.buildDirectory.dir('generated/sources/modMetadata')
 }
 
