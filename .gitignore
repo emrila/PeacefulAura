@@ -40,5 +40,6 @@ classes/
 **/runs/
 **/run/
 **/.cache/
+**/run-data/
 
 
