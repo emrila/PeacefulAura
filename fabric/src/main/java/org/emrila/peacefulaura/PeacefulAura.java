@@ -4,7 +4,6 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.Identifier;
 import org.emrila.peacefulaura.effect.ModEffects;
 import org.emrila.peacefulaura.item.ModItems;
-import org.emrila.peacefulaura.item.alchemy.ModPotionBrewing;
 import org.emrila.peacefulaura.item.alchemy.ModPotions;
 
 public class PeacefulAura implements ModInitializer {
@@ -16,7 +15,6 @@ public class PeacefulAura implements ModInitializer {
         ModEffects.init(ModConstants.MOD_ID);
         ModItems.init(ModConstants.MOD_ID);
         ModPotions.init(ModConstants.MOD_ID);
-        ModPotionBrewing.init(ModConstants.MOD_ID);
     }
 
     public static Identifier id(String path) {

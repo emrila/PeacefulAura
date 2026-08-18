@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "peacefulaura:baked_poisonous_potato_from_smoking"
+        "recipes": "peacefulaura:baked_poisonous_potato_from_smoking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -3,18 +3,18 @@
   "input": {
     "item": "minecraft:potion",
     "potion_contents": {
-      "potions": "peaceful-aura:peaceful_aura"
+      "potions": "minecraft:water"
     }
   },
   "output": {
     "components": {
       "minecraft:potion_contents": {
-        "potion": "peaceful-aura:peaceful_aura"
+        "potion": "peacefulaura:peaceful_aura"
       }
     },
-    "id": "minecraft:splash_potion"
+    "id": "minecraft:potion"
   },
   "reagent": {
-    "item": "minecraft:gunpowder"
+    "item": "peacefulaura:baked_poisonous_potato"
   }
 }

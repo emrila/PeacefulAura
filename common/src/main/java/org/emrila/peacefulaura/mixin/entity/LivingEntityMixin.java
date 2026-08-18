@@ -34,4 +34,5 @@ abstract class LivingEntityMixin {
             cir.setReturnValue(false);
         }
     }
+
 }

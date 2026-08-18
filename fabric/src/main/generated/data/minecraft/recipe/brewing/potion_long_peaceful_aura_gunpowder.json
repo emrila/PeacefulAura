@@ -3,18 +3,18 @@
   "input": {
     "item": "minecraft:potion",
     "potion_contents": {
-      "potions": "peaceful-aura:peaceful_aura"
+      "potions": "peacefulaura:long_peaceful_aura"
     }
   },
   "output": {
     "components": {
       "minecraft:potion_contents": {
-        "potion": "peaceful-aura:long_peaceful_aura"
+        "potion": "peacefulaura:long_peaceful_aura"
       }
     },
-    "id": "minecraft:potion"
+    "id": "minecraft:splash_potion"
   },
   "reagent": {
-    "item": "minecraft:redstone"
+    "item": "minecraft:gunpowder"
   }
 }

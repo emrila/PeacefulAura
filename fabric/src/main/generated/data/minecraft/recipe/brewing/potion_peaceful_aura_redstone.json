@@ -1,18 +1,18 @@
 {
   "type": "minecraft:brewing",
   "input": {
-    "item": "minecraft:splash_potion",
+    "item": "minecraft:potion",
     "potion_contents": {
-      "potions": "peaceful-aura:peaceful_aura"
+      "potions": "peacefulaura:peaceful_aura"
     }
   },
   "output": {
     "components": {
       "minecraft:potion_contents": {
-        "potion": "peaceful-aura:long_peaceful_aura"
+        "potion": "peacefulaura:long_peaceful_aura"
       }
     },
-    "id": "minecraft:splash_potion"
+    "id": "minecraft:potion"
   },
   "reagent": {
     "item": "minecraft:redstone"

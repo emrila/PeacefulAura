@@ -3,18 +3,18 @@
   "input": {
     "item": "minecraft:lingering_potion",
     "potion_contents": {
-      "potions": "peaceful-aura:peaceful_aura"
+      "potions": "minecraft:water"
     }
   },
   "output": {
     "components": {
       "minecraft:potion_contents": {
-        "potion": "peaceful-aura:long_peaceful_aura"
+        "potion": "peacefulaura:peaceful_aura"
       }
     },
     "id": "minecraft:lingering_potion"
   },
   "reagent": {
-    "item": "minecraft:redstone"
+    "item": "peacefulaura:baked_poisonous_potato"
   }
 }
