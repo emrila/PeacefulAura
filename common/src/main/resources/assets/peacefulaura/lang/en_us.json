@@ -1,0 +1,10 @@
+{
+  "effect.peacefulaura.peaceful_aura": "Peaceful Aura",
+
+  "item.minecraft.potion.effect.peaceful_aura": "Potion of Peaceful Aura",
+  "item.minecraft.splash_potion.effect.peaceful_aura": "Splash Potion of Peaceful Aura",
+  "item.minecraft.lingering_potion.effect.peaceful_aura": "Lingering Potion of Peaceful Aura",
+  "item.minecraft.tipped_arrow.effect.peaceful_aura": "Arrow of Peaceful Aura",
+
+  "item.peacefulaura.baked_poisonous_potato": "Baked Poisonous Potato"
+}
