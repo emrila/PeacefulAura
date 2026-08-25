@@ -1,0 +1,10 @@
+{
+  "effect.peacefulaura.peaceful_aura": "Fredelig aura",
+
+  "item.minecraft.potion.effect.peaceful_aura": "Fredelig auraeliksir",
+  "item.minecraft.splash_potion.effect.peaceful_aura": "Sprøjtende fredelig auraeliksir",
+  "item.minecraft.lingering_potion.effect.peaceful_aura": "Vedvarende fredelig auraeliksir",
+  "item.minecraft.tipped_arrow.effect.peaceful_aura": "Pil af fredelig auraeliksir",
+
+  "item.peacefulaura.baked_poisonous_potato": "Bagt giftig kartoffel"
+}
