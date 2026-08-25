@@ -45,8 +45,8 @@ public class PeacefulAuraRecipeProvider extends RecipeProvider {
         BrewingRecipeBuilder.brewingMix(Items.POTION,inputPotion, reagentItem, outputPotion).save(this.output);
         BrewingRecipeBuilder.brewingMix(Items.SPLASH_POTION, inputPotion, reagentItem, outputPotion).save(this.output);
         BrewingRecipeBuilder.brewingMix(Items.LINGERING_POTION, inputPotion, reagentItem, outputPotion).save(this.output);
-        BrewingRecipeBuilder.brewingContainerTransform(Items.POTION, outputPotion, Items.DRAGON_BREATH, Items.LINGERING_POTION).save(this.output);
         BrewingRecipeBuilder.brewingContainerTransform(Items.POTION, outputPotion, Items.GUNPOWDER, Items.SPLASH_POTION).save(this.output);
+        BrewingRecipeBuilder.brewingContainerTransform(Items.SPLASH_POTION, outputPotion, Items.DRAGON_BREATH, Items.LINGERING_POTION).save(this.output);
     }
 
     @SuppressWarnings("SameParameterValue")
