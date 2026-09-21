@@ -2,36 +2,61 @@ package org.emrila.peacefulaura;
 
 
 import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.component.Consumable;
-import net.minecraft.world.item.component.Consumables;
-import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
+import org.emrila.peacefulaura.food.ModFoods;
+import org.jetbrains.annotations.Contract;
 import org.jspecify.annotations.NonNull;
+
+import java.util.Objects;
 
 public class ModUtil {
 
-    public static @NonNull FoodProperties buildFoodProperty(){
-        return new FoodProperties.Builder()
-                .nutrition(0)
-                .saturationModifier(0.0f)
-                .alwaysEdible()
-                .build();
+    public static final Identifier EFFECT_ID = ModUtil.id("peaceful_aura");
+    public static final Identifier POTION_ID = ModUtil.id("peaceful_aura");
+    public static final Identifier POTION_LONG_ID = ModUtil.id("long_peaceful_aura");
+    public static final Identifier BAKED_POISONOUS_POTATO_ID = ModUtil.id("baked_poisonous_potato");
+
+    public static Item createFoodItem(ResourceKey<Item> key) {
+        return new Item(ModUtil.createFoodItemProperties(new Item.Properties()).setId(key));
     }
 
-    public static @NonNull Consumable buildConsumable(Holder<MobEffect> effectHolder){
-        return Consumables.defaultFood()
-                .consumeSeconds(1.0f)
-                .onConsume(new ApplyStatusEffectsConsumeEffect(
-                        new MobEffectInstance(effectHolder, 1200),1.0f))
-                .build();
+    public static Item.Properties createFoodItemProperties(Item.Properties properties) {
+        return properties.food(ModFoods.GRILLED_POISONOUS_POTATO, ModFoods.GRILLED_POISONOUS_POTATO_CONSUMABLE);
     }
 
-    public static Potion constructPotion(Holder<MobEffect> effectHolder, boolean isLong){
-        final int duration = isLong ? 9600 : 3600;
-        return new Potion("peaceful_aura", new MobEffectInstance(effectHolder, duration));
+    public static Potion constructPotion(boolean isLong) {
+        Holder<MobEffect> effectHolder = getHolderForEffect();
+        int duration = isLong ? 9600 : 3600;
+        return new Potion(POTION_ID.getPath(), new MobEffectInstance(effectHolder, duration));
+    }
+
+    public static Holder<MobEffect> getHolderForEffect() {
+        return getHolderForEffect(ModUtil.EFFECT_ID);
+    }
+
+    public static Holder<MobEffect> getHolderForEffect(Identifier id) {
+        MobEffect effect = Objects.requireNonNull(BuiltInRegistries.MOB_EFFECT.getValue(id));
+        return BuiltInRegistries.MOB_EFFECT.wrapAsHolder(effect);
+    }
+
+    public static Item getItem(Identifier id) {
+        return BuiltInRegistries.ITEM.getValue(id);
+    }
+
+    public static Holder<Potion> getHolderForPotion(Identifier id) {
+        Potion potion = Objects.requireNonNull(BuiltInRegistries.POTION.getValue(id));
+        return BuiltInRegistries.POTION.wrapAsHolder(potion);
+    }
+
+    @Contract("_ -> new")
+    public static @NonNull Identifier id(String path) {
+        return Identifier.fromNamespaceAndPath(ModConstants.MOD_ID, path);
     }
 
 }

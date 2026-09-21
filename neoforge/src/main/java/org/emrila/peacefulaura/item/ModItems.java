@@ -5,14 +5,15 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.emrila.peacefulaura.ModConstants;
-import org.emrila.peacefulaura.food.ModFoods;
+import org.emrila.peacefulaura.ModUtil;
 
 public class ModItems {
-
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ModConstants.MOD_ID);
 
-    public static final DeferredItem<Item> BAKED_POISONOUS_POTATO = ITEMS.registerItem("baked_poisonous_potato",
-            properties -> new Item(properties.food(ModFoods.GRILLED_POISONOUS_POTATO, ModFoods.GRILLED_POISONOUS_POTATO_CONSUMABLE)));
+    public static final DeferredItem<Item> BAKED_POISONOUS_POTATO = ITEMS.registerItem(
+            ModUtil.BAKED_POISONOUS_POTATO_ID.getPath(),
+            properties -> new Item(ModUtil.createFoodItemProperties(properties))
+    );
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

@@ -18,27 +18,22 @@ import org.emrila.peacefulaura.item.alchemy.ModPotions;
 public class PeacefulAura {
 
     public PeacefulAura(IEventBus eventBus) {
-        eventBus.addListener(this::commonSetup);
-
-        ModConstants.LOG.info("Hello NeoForge world!");
 
         ModItems.register(eventBus);
-
         ModPotions.register(eventBus);
-
         ModEffects.register(eventBus);
 
         NeoForge.EVENT_BUS.register(this);
-
-        eventBus.addListener(this::addCreative);
+        eventBus.addListener(PeacefulAura::commonSetup);
+        eventBus.addListener(PeacefulAura::addCreative);
     }
 
-    private void commonSetup(FMLCommonSetupEvent event) {
+    private static void commonSetup(FMLCommonSetupEvent event) {
     }
 
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+    private static void addCreative(BuildCreativeModeTabContentsEvent event) {
         ResourceKey<CreativeModeTab> tabKey = event.getTabKey();
-        if(tabKey == CreativeModeTabs.INGREDIENTS || tabKey == CreativeModeTabs.FOOD_AND_DRINKS){
+        if (tabKey == CreativeModeTabs.INGREDIENTS || tabKey == CreativeModeTabs.FOOD_AND_DRINKS) {
             event.accept(ModItems.BAKED_POISONOUS_POTATO);
         }
     }
