@@ -1,19 +1,15 @@
 package org.emrila.peacefulaura.datagen;
 
 import net.minecraft.client.data.models.BlockModelGenerators;
-import net.minecraft.client.data.models.ItemModelOutput;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
-import net.minecraft.client.data.models.model.ModelInstance;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import org.emrila.peacefulaura.item.ModItems;
 import org.jspecify.annotations.NonNull;
 
-import java.util.function.BiConsumer;
 import java.util.stream.Stream;
 
 public class ModModelProvider extends ModelProvider {
@@ -23,12 +19,12 @@ public class ModModelProvider extends ModelProvider {
     }
 
     @Override
-    protected @NonNull Stream<Block> getKnownBlocks() {
+    protected Stream<Block> getKnownBlocks() {
         return Stream.empty();
     }
 
     @Override
-    protected @NonNull Stream<Item> getKnownItems() {
+    protected Stream<Item> getKnownItems() {
         return Stream.of(ModItems.BAKED_POISONOUS_POTATO.get());
     }
 
@@ -36,23 +32,19 @@ public class ModModelProvider extends ModelProvider {
     protected @NonNull BlockModelGenerators getBlockModelGenerators(@NonNull BlockStateGeneratorCollector blocks, @NonNull ItemInfoCollector items, @NonNull SimpleModelCollector models) {
         return new BlockModelGenerators(blocks, items, models) {
             @Override
-            public void run() {}
+            public void run() {
+            }
         };
     }
 
     @Override
     protected @NonNull ItemModelGenerators getItemModelGenerators(@NonNull ItemInfoCollector items, @NonNull SimpleModelCollector models) {
-        return new ModItemModelGenerators(items, models);
+        return new ItemModelGenerators(items, models) {
+            @Override
+            public void run() {
+                generateFlatItem(ModItems.BAKED_POISONOUS_POTATO.get(), ModelTemplates.FLAT_ITEM);
+            }
+        };
     }
 
-    private static final class ModItemModelGenerators extends ItemModelGenerators {
-        private ModItemModelGenerators(ItemModelOutput itemModelOutput, BiConsumer<Identifier, ModelInstance> modelOutput) {
-            super(itemModelOutput, modelOutput);
-        }
-
-        @Override
-        public void run() {
-            generateFlatItem(ModItems.BAKED_POISONOUS_POTATO.get(), ModelTemplates.FLAT_ITEM);
-        }
-    }
 }

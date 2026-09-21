@@ -1,31 +1,36 @@
 package org.emrila.peacefulaura.datagen;
 
-import net.minecraft.core.HolderLookup;
+import net.minecraft.core.Registry;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.MultiRegistryBootstrap;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
-import org.jspecify.annotations.NonNull;
+import net.minecraft.data.registries.RegistriesDatapackGenerator;
+import net.minecraft.resources.ResourceKey;
+import net.minecraftforge.common.data.RegistryDataBuilder;
+import org.emrila.peacefulaura.ModConstants;
 
-import java.util.concurrent.CompletableFuture;
+import java.util.Set;
 
-public class ModRecipeProvider extends PeacefulAuraRecipeProvider {
-    private ModRecipeProvider(HolderLookup.Provider registries, RecipeOutput output) {
-        super(registries, output);
-    }
+public class ModRecipeProvider {
 
-    public static final class Runner extends RecipeProvider.Runner {
-        public Runner(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> registries) {
-            super(packOutput, registries);
-        }
+    public static RegistriesDatapackGenerator create(PackOutput output) {
+        RegistrySetBuilder recipeRegistryBuilder = new RegistrySetBuilder()
+                .add(new MultiRegistryBootstrap() {
+                    @Override
+                    public Set<ResourceKey<? extends Registry<?>>> requestedRegistries() {
+                        return Set.of(Registries.RECIPE, Registries.ADVANCEMENT);
+                    }
 
-        @Override
-        protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider registries, @NonNull RecipeOutput output) {
-            return new ModRecipeProvider(registries, output);
-        }
+                    @Override
+                    public void run(BootstrapGetter registries) {
+                        PeacefulAuraRecipeProvider.buildRecipes(registries.get(Registries.RECIPE), registries.get(Registries.ADVANCEMENT));
+                    }
+                });
 
-        @Override
-        public @NonNull String getName() {
-            return "Peaceful Aura Recipes";
-        }
+        return RegistryDataBuilder.of()
+                .modid(ModConstants.MOD_ID)
+                .reloadable(recipeRegistryBuilder)
+                .reloadableGenerator(output);
     }
 }

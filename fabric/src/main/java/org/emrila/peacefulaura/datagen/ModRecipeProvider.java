@@ -7,10 +7,8 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.item.crafting.Recipe;
-import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
-
 
 public class ModRecipeProvider extends FabricRecipeProvider {
     public ModRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
@@ -18,13 +16,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     @Override
-    protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider registries, @NonNull BootstrapContext<Recipe<?>> recipes, @NonNull BootstrapContext<Advancement> advancements) {
+    protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, BootstrapContext<Recipe<?>> recipes, BootstrapContext<Advancement> advancements) {
         return new PeacefulAuraRecipeProvider(recipes, advancements);
     }
 
-
     @Override
-    public @NonNull String getName() {
+    public String getName() {
         return "Peaceful Aura Recipes";
     }
 }
