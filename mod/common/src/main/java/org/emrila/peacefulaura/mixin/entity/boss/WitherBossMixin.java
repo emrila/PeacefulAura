@@ -44,10 +44,4 @@ abstract class WitherBossMixin extends LivingEntity {
         }
     }
 
-    @Inject(method = "canBeAffected", at = @At("RETURN"), cancellable = true)
-    void peacefulAura$canBeAffected(MobEffectInstance newEffect, @NonNull CallbackInfoReturnable<Boolean> cir){
-        if(cir.getReturnValue() || PeacefulAuraUtil.isAura(newEffect)){
-            cir.setReturnValue(true);
-        }
-    }
 }
